@@ -5,6 +5,7 @@ import Hello from "../components/Hello";
 import Counter from "../components/Counter";
 import NoMatch from "../components/NoMatch";
 import NavBar from "../components/NavBar";
+import BookmarkContainer from "../containers/BookmarkContainer";
 
 const routes = (
   <div>
@@ -13,6 +14,7 @@ const routes = (
       <Route exact path="/" component={Home} />
       <Route path="/hello" component={Hello} />
       <Route path="/counter" component={Counter} />
+      <Route path="/bookmark" component={BookmarkContainer} />
       <Route component={NoMatch} />
     </Switch>
   </div>
