@@ -2,14 +2,21 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { createLogger } from "redux-logger";
 import createSagaMiddleware, { END } from "redux-saga";
 import { routerMiddleware, connectRouter } from "connected-react-router";
+import { createBrowserHistory } from "history";
 
+import customMiddleware, { incrementMiddleware } from "../middlewares";
 import rootReducer from "../reducers";
+import rootSaga from "../sagas";
 
-export default function configureStore(initialState, history) {
+export default function configureStore() {
+  const initialState = {};
+  const history = createBrowserHistory();
   const sagaMiddleware = createSagaMiddleware();
   const composeEnhancer =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const middleware = [
+    customMiddleware,
+    incrementMiddleware,
     routerMiddleware(history),
     sagaMiddleware,
     createLogger()
@@ -27,7 +34,8 @@ export default function configureStore(initialState, history) {
     });
   }
 
-  store.runSaga = sagaMiddleware.run;
+  store.runSaga = () => sagaMiddleware.run(rootSaga);
+  store.history = history;
   store.close = () => store.dispatch(END);
 
   return store;
