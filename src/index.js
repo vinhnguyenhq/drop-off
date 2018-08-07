@@ -2,17 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { Provider } from "react-redux";
-import { createBrowserHistory } from "history";
 
 import configureStore from "./store/configureStore";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-import rootSaga from "./sagas";
 
-const history = createBrowserHistory();
-const store = configureStore(window.__INITIAL_STATE__, history);
+const store = configureStore();
 
-store.runSaga(rootSaga);
+store.runSaga();
 
 const logReduxState = store =>
   window.setInterval(() => {
@@ -25,7 +22,7 @@ const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <App history={history} />
+        <App history={store.history} />
       </Provider>
     </AppContainer>,
     document.getElementById("root")
