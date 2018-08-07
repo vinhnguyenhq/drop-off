@@ -14,6 +14,13 @@ const store = configureStore(window.__INITIAL_STATE__, history);
 
 store.runSaga(rootSaga);
 
+const logReduxState = store =>
+  window.setInterval(() => {
+    return console.log(store.getState());
+  }, 1000);
+
+logReduxState(store);
+
 const render = () => {
   ReactDOM.render(
     <AppContainer>

@@ -5755,6 +5755,10 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
+redux-online-store-enhancer@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/redux-online-store-enhancer/-/redux-online-store-enhancer-3.0.0.tgz#cc94d72607a2c76af7508a39108bdcc31848f638"
+
 redux-saga@^0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.16.0.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
