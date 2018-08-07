@@ -3,6 +3,7 @@ import { createLogger } from "redux-logger";
 import createSagaMiddleware, { END } from "redux-saga";
 import { routerMiddleware, connectRouter } from "connected-react-router";
 import { createBrowserHistory } from "history";
+import onlineStoreEnhancer from "redux-online-store-enhancer";
 
 import customMiddleware, { incrementMiddleware } from "../middlewares";
 import rootReducer from "../reducers";
@@ -25,7 +26,7 @@ export default function configureStore() {
   const store = createStore(
     connectRouter(history)(rootReducer),
     initialState,
-    composeEnhancer(applyMiddleware(...middleware))
+    composeEnhancer(applyMiddleware(...middleware), onlineStoreEnhancer())
   );
 
   if (module.hot) {
