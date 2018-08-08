@@ -8,6 +8,7 @@ import rootSaga from "../sagas";
 
 export default function configureStore() {
   const initialState = {};
+
   const history = createBrowserHistory();
   const sagaMiddleware = createSagaMiddleware();
   const middleware = [routerMiddleware(history), sagaMiddleware];

@@ -11,10 +11,12 @@ import rootSaga from "../sagas";
 
 export default function configureStore() {
   const initialState = {};
+
   const history = createBrowserHistory();
   const sagaMiddleware = createSagaMiddleware();
   const composeEnhancer =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
   const middleware = [
     customMiddleware,
     incrementMiddleware,
