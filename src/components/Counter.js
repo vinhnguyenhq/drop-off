@@ -6,6 +6,9 @@ import { increment, decrement, incrementAsync } from "../actions/counter";
 const Counter = props => (
   <div>
     Counter: {props.count}
+    <br />
+    Status: {props.online ? "TRUE" : "FALSE"}
+    <br />
     <button onClick={props.increment}>+</button>
     <button onClick={props.incrementAsync}>+ ASYNC</button>
     <button onClick={props.decrement}>-</button>
@@ -20,7 +23,8 @@ Counter.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  count: state.count
+  count: state.count,
+  online: state.online
 });
 
 const mapDispatchToProps = dispatch => ({

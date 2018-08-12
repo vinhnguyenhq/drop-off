@@ -3,7 +3,7 @@ import HelloChild from "./HelloChild";
 
 const Hello = () => (
   <div>
-    <div>Hello</div>
+    <div>Hello From</div>
     <HelloChild />
   </div>
 );
